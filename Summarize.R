@@ -1,0 +1,6 @@
+install.packages('plyr')
+install.packages("dplyr")
+library(plyr)
+library(dplyr)
+data = read.csv('Failed-Bank-Tracker.csv')
+data.per_country = ddply(data, .(Country), summarise, count = length(Country))
