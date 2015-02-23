@@ -1,0 +1,35 @@
+#map
+  background: rgb(106, 205, 228)
+  width: 900px
+  height: 650px
+  position: relative
+
+  .country
+    stroke: #777
+    stroke-width: 0.5
+    &.active
+      stroke: #000
+      stroke-width: 1
+
+  #legend
+    position: absolute
+    bottom: 20px
+    left: 20px
+    height: 220px
+    width: 60px
+    background: rgba(237, 237, 237, 0.8)
+    border: 1px solid #efefef
+    padding: 10px
+    font-size: 0.6em
+
+#tooltip
+  position: absolute
+  left: 0
+  right: 0
+  opacity: 0
+  width: 150px
+  background: rgba(237, 237, 237, 0.8)
+  border: 1px solid #efefef
+  font-size: 0.8em
+  h4
+    margin: 0.5em 0

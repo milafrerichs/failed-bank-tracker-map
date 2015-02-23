@@ -1,0 +1,13 @@
+%header.centered-navigation{:role => "banner"}
+  .centered-navigation-wrapper
+    %a.mobile-logo{:href => "javascript:void(0)"}
+      %img{:alt => "Logo image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png"}
+    %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => "javascript:void(0)"} MENU
+    %nav{:role => "navigation"}
+      %ul#js-centered-navigation-menu.centered-navigation-menu.show
+        %li.nav-link
+          %a{:href => "{{site.baseUrl}}/"} Failed Bank Tracker Map
+        %li.nav-link
+          %a{:href => "http://openeconomics.net/failed-bank-tracker/"} About the Project
+        %li.nav-link
+          A project by OKF
