@@ -3,7 +3,8 @@ $ ->
 
   d3.json topBanksSQL, (data) ->
     data = data.rows
-    barchart = new Barchart(data)
+    width = $('#top-10').width()
+    barchart = new Barchart(data, { width: width })
     barchart.setXDomain(data.map((d) -> d.country))
     barchart.setYDomain([0,d3.max(data, (d) -> d.banks)])
     barchart.setValueKey('banks')
