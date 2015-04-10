@@ -1,0 +1,60 @@
+$tooltip-title-background: #526970
+$tooltip-background: #fff
+$tooltip-border-color: #efefef
+$tooltip-explanation-color: #909090
+
+#map
+  background: rgb(106, 205, 228)
+  width: 900px
+  height: 650px
+  position: relative
+
+  .country
+    stroke: #777
+    stroke-width: 0.5
+    &.active
+      stroke: #000
+      stroke-width: 1
+
+  #legend
+    position: absolute
+    bottom: 20px
+    left: 20px
+    height: 220px
+    width: 60px
+    background: rgba(237, 237, 237, 0.8)
+    border: 1px solid #efefef
+    padding: 10px
+    font-size: 0.6em
+
+#tooltip
+  position: absolute
+  left: 0
+  right: 0
+  opacity: 0
+  width: 180px
+  background: #fff
+  border-radius: 0.5em
+  font-size: 0.8em
+  box-shadow: 5px 5px 9px -3px #c1c1c1
+  .title
+    background: $tooltip-title-background
+    border-bottom: 1px solid darken($tooltip-title-background, 10)
+    border-top-left-radius: 0.5em
+    border-top-right-radius: 0.5em
+    padding: 0
+    margin: 0 0 0.3em 0
+  h4
+    color: #fff
+    padding: 0.4em 0
+    margin: 0
+    font-size: 1.2em
+  .details
+    p
+      font-size: 0.9em
+      color: $tooltip-explanation-color
+      padding: 0
+      margin: 0
+    h5
+      font-size: 2.4em
+      margin: 0 0 0.25em 0
