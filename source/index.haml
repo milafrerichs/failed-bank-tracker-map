@@ -11,3 +11,34 @@ title: Failed Banks in Europe 1960-2014
     #legend
       %b Failed Banks
   #tooltip
+
+%script(id="country-tooltip" type="text/x-handlebars-template")
+  <div class='title'>
+  <h4>{{name}}</h4>
+  </div>
+  <div class='details'>
+  <p class='explanation'>Failed Banks</p>
+  <h5>{{dataCount}}</h5>
+  </div>
+
+
+%script(id="bank-tooltip" type="text/x-handlebars-template")
+  <div class="bank-name">
+  <h4>{{bank_name}}</h4>
+  <h5>{{city}}</h5>
+  </div>
+  <div class="detail">
+  <div class="failed entry">
+  <div class="title">Failed</div>
+  <p class="date">{{start_date_formatted}}</p>
+  </div>
+  {{#end_date}}
+  <div class="recovered entry">
+  <span class="title">Recovered</span>
+  <p class="date">{{end_date}}</p>
+  </div>
+  {{/end_date}}
+  <div class="article entry">
+  <p class="article"><a href="{{article_link}}">Article</s></p>
+  </div>
+  </div>

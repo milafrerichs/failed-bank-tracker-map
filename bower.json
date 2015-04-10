@@ -19,6 +19,8 @@
     "colorbrewer":"",
     "topojson":"",
     "underscore":"",
-    "jquery":""
+    "jquery":"",
+    "cartodb.js":"",
+    "handlebars":""
   }
 }

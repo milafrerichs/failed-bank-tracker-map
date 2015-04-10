@@ -9,12 +9,12 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "The Middleman" %></title>
     
-    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= stylesheet_link_tag "http://libs.cartocdn.com/cartodb.js/v3/3.13/themes/css/cartodb.css", "normalize", "all" %>
   </head>
   
   <body class="<%= page_classes %>">
     <%= partial "partials/navigation" %>
     <%= yield %>
-    <%= javascript_include_tag  "all" %>
+    <%= javascript_include_tag  "http://libs.cartocdn.com/cartodb.js/v3/cartodb.js","all" %>
   </body>
 </html>
