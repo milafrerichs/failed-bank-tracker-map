@@ -2,6 +2,8 @@ $tooltip-title-background: #526970
 $tooltip-background: #fff
 $tooltip-border-color: #efefef
 $tooltip-explanation-color: #909090
+$detail-map-details-background-color: #f8f7f5
+$detail-map-details-border-color: #e6e5e3
 
 #map
   background: rgb(106, 205, 228)
@@ -37,24 +39,66 @@ $tooltip-explanation-color: #909090
   border-radius: 0.5em
   font-size: 0.8em
   box-shadow: 5px 5px 9px -3px #c1c1c1
-  .title
-    background: $tooltip-title-background
-    border-bottom: 1px solid darken($tooltip-title-background, 10)
-    border-top-left-radius: 0.5em
-    border-top-right-radius: 0.5em
-    padding: 0
-    margin: 0 0 0.3em 0
-  h4
-    color: #fff
-    padding: 0.4em 0
-    margin: 0
-    font-size: 1.2em
-  .details
-    p
-      font-size: 0.9em
-      color: $tooltip-explanation-color
+  &.country
+    .title
+      background: $tooltip-title-background
+      border-bottom: 1px solid darken($tooltip-title-background, 10)
+      border-top-left-radius: 0.5em
+      border-top-right-radius: 0.5em
       padding: 0
+      margin: 0 0 0.3em 0
+    h4
+      color: #fff
+      padding: 0.4em 0
       margin: 0
-    h5
-      font-size: 2.4em
-      margin: 0 0 0.25em 0
+      font-size: 1.2em
+    .details
+      p
+        font-size: 0.9em
+        color: $tooltip-explanation-color
+        padding: 0
+        margin: 0
+      h5
+        font-size: 2.4em
+        margin: 0 0 0.25em 0
+  &.bank
+    width: 250px
+    +clearfix
+    .bank-name
+      width: 75%
+      float: left
+      padding: 10px
+      text-align: left
+      h4
+        font-size: 1.5em
+        color: #000
+        margin: 0
+      h5
+        font-size: 1.2em
+        margin: 0
+    .detail
+      width: 25%
+      float: left
+      background: $detail-map-details-background-color
+      border-left: 1px solid $detail-map-details-border-color
+      border-bottom-right-radius: 0.5em
+      border-top-right-radius: 0.5em
+      .entry
+        padding: 5px
+        border-bottom: 1px solid $detail-map-details-border-color
+      &:last-child
+        border-bottom: none
+      .failed
+        .title
+          color: $tooltip-explanation-color
+          font-size: 0.8em
+          padding: 0
+          margin: 0
+        p
+          padding: 0
+          margin: 0
+          &.date
+            color: #000
+            font-size: 1.2em
+            font-weight: bold
+
