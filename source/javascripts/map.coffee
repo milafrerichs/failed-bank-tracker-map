@@ -9,6 +9,8 @@ projection = d3.geo.mercator().scale(scale).translate([width/2, 0]).center(cente
 path = d3.geo.path().projection(projection)
 colors = colorbrewer.Reds[8]
 
+countryTooltipHtml = $("#country-tooltip").html()
+countryTooltip = Handlebars.compile(countryTooltipHtml)
 svg = d3.select("#map").append("svg").attr("height", height).attr("width", width)
 
 bankScale = d3.scale.quantile().range(colors)
@@ -18,7 +20,8 @@ findScore = (banks, d) ->
 
 tooltipHtml = (d, data) ->
   dataCount = if data then data.count else 0
-  "<div class='title'><h4>#{d.properties.name}</h4></div><div class='details'><p class='explanation'>Failed Banks</p><h5>#{dataCount}</h5></div>"
+  dataObj = {name: d.properties.name, dataCount: dataCount }
+  countryTooltip(dataObj)
 
 countries = svg.append("g")
 europeTopojson = "data/eu.json"
