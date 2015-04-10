@@ -11,6 +11,9 @@ colors = colorbrewer.Reds[8]
 
 countryTooltipHtml = $("#country-tooltip").html()
 countryTooltip = Handlebars.compile(countryTooltipHtml)
+bankTooltipHtml = $("#bank-tooltip").html()
+bankTooltip = Handlebars.compile(bankTooltipHtml)
+
 svg = d3.select("#map").append("svg").attr("height", height).attr("width", width)
 
 bankScale = d3.scale.quantile().range(colors)
@@ -23,8 +26,12 @@ tooltipHtml = (d, data) ->
   dataObj = {name: d.properties.name, dataCount: dataCount }
   countryTooltip(dataObj)
 
+tooltipBankHtml = (d) ->
+  bankTooltip(d.properties)
+
 countries = svg.append("g")
 bankL = svg.append("g").attr('class','banks')
+
 europeTopojson = "data/eu.json"
 failedBanks = "data/failed_per_country.csv"
 cartodbSQL = 'https://milafrerichs.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT *,to_char(start_date,\'YYYY\') as start_date_formatted,to_char(end_date,\'YYYY\') as end_date_formatted FROM failed_bank_tracker_geom'
@@ -48,6 +55,8 @@ queue()
     .on("mouseover", (d) ->
       d3.select(this).classed("active", true)
       d3.select("#tooltip")
+      .classed("country", true)
+      .classed("bank", false)
       .html(tooltipHtml(d, findScore(banks, d)))
       .style("opacity", 1))
     .on("mouseout", (d) -> d3.select(this).classed("active", false))
@@ -80,4 +89,17 @@ queue()
     .append("path")
     .attr("class","bank")
     .attr("d",path)
+    .on("mouseover", (d) ->
+      d3.select(this).classed("active", true)
+      d3.select("#tooltip")
+      .classed("country", false)
+      .classed("bank", true)
+      .html(tooltipBankHtml(d))
+      .style("opacity", 1)
+    )
+    .on("mouseout", (d) -> d3.select(this).classed("active", false))
+    .on("mousemove", (d) ->
+      d3.select("#tooltip").style("left", (d3.event.pageX + 14) + "px")
+      .style("top", (d3.event.pageY - 32) + "px")
+    )
     return
