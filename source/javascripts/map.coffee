@@ -18,7 +18,7 @@ findScore = (banks, d) ->
 
 tooltipHtml = (d, data) ->
   dataCount = if data then data.count else 0
-  "<h4>#{d.properties.name}</h4><p>Failed Banks: #{dataCount}</p>"
+  "<div class='title'><h4>#{d.properties.name}</h4></div><div class='details'><p class='explanation'>Failed Banks</p><h5>#{dataCount}</h5></div>"
 
 countries = svg.append("g")
 europeTopojson = "data/eu.json"
@@ -46,7 +46,7 @@ queue()
     .on("mouseout", (d) -> d3.select(this).classed("active", false))
     .on("mousemove", (d) ->
       d3.select("#tooltip").style("left", (d3.event.pageX + 14) + "px")
-      .style("top", (d3.event.pageY - 22) + "px")
+      .style("top", (d3.event.pageY - 32) + "px")
     )
 
     svgLegend = d3.select("#legend")
