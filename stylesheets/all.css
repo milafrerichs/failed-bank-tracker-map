@@ -233,10 +233,9 @@ picture {
 /* line 1, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
 body {
   background: #fff;
-  text-align: center;
   font-family: sans-serif; }
 
-/* line 6, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
+/* line 5, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
 .content {
   max-width: 68em;
   margin-left: auto;
@@ -246,40 +245,78 @@ body {
     clear: both;
     content: "";
     display: table; }
-  /* line 8, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
+  /* line 7, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
   .content .text {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%; }
+    width: 23.23176%;
+    padding: 1em 0 0 0; }
     /* line 87, /Development/projects/failedbanktracker/source/stylesheets/neat/grid/_span-columns.scss */
     .content .text:last-child {
       margin-right: 0; }
   /* line 10, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
-  .content #map {
+  .content #top-10 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%; }
     /* line 87, /Development/projects/failedbanktracker/source/stylesheets/neat/grid/_span-columns.scss */
-    .content #map:last-child {
+    .content #top-10:last-child {
       margin-right: 0; }
 
-/* line 1, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+/* line 12, /Development/projects/failedbanktracker/source/stylesheets/_main.sass */
+#map {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  display: block; }
+  /* line 87, /Development/projects/failedbanktracker/source/stylesheets/neat/grid/_span-columns.scss */
+  #map:last-child {
+    margin-right: 0; }
+  /* line 20, /Development/projects/failedbanktracker/source/stylesheets/bourbon/addons/_clearfix.scss */
+  #map::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+/* line 3, /Development/projects/failedbanktracker/source/stylesheets/_top-10.sass */
+#top-10 #top-10-chart rect {
+  fill: #72ABB2; }
+/* line 5, /Development/projects/failedbanktracker/source/stylesheets/_top-10.sass */
+#top-10 #top-10-chart text {
+  font-size: 0.7em; }
+/* line 7, /Development/projects/failedbanktracker/source/stylesheets/_top-10.sass */
+#top-10 #top-10-chart .axis path,
+#top-10 #top-10-chart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges; }
+
+/* line 8, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
 #map {
   background: #6acde4;
-  width: 900px;
   height: 650px;
   position: relative; }
-  /* line 7, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  /* line 13, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
   #map .country {
     stroke: #777;
     stroke-width: 0.5; }
-    /* line 10, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+    /* line 16, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
     #map .country.active {
       stroke: #000;
       stroke-width: 1; }
-  /* line 14, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  /* line 19, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #map .bank {
+    stroke: #fefefe;
+    fill: #698C86;
+    stroke-width: 0.5; }
+    /* line 23, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+    #map .bank.active {
+      fill: red;
+      stroke-width: 1; }
+  /* line 27, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
   #map #legend {
     position: absolute;
     bottom: 20px;
@@ -291,19 +328,95 @@ body {
     padding: 10px;
     font-size: 0.6em; }
 
-/* line 25, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+/* line 38, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
 #tooltip {
   position: absolute;
   left: 0;
   right: 0;
   opacity: 0;
-  width: 150px;
-  background: rgba(237, 237, 237, 0.8);
-  border: 1px solid #efefef;
-  font-size: 0.8em; }
-  /* line 34, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
-  #tooltip h4 {
-    margin: 0.5em 0; }
+  width: 180px;
+  background: #fff;
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  box-shadow: 5px 5px 9px -3px #c1c1c1;
+  text-align: center; }
+  /* line 50, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #tooltip.country .title {
+    background: #526970;
+    border-bottom: 1px solid #3c4d53;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    padding: 0;
+    margin: 0 0 0.3em 0; }
+  /* line 57, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #tooltip.country h4 {
+    color: #fff;
+    padding: 0.4em 0;
+    margin: 0;
+    font-size: 1.2em; }
+  /* line 63, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #tooltip.country .details p {
+    font-size: 0.9em;
+    color: #909090;
+    padding: 0;
+    margin: 0; }
+  /* line 68, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #tooltip.country .details h5 {
+    font-size: 2.4em;
+    margin: 0 0 0.25em 0; }
+  /* line 71, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+  #tooltip.bank {
+    width: 250px; }
+    /* line 20, /Development/projects/failedbanktracker/source/stylesheets/bourbon/addons/_clearfix.scss */
+    #tooltip.bank::after {
+      clear: both;
+      content: "";
+      display: table; }
+    /* line 74, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+    #tooltip.bank .bank-name {
+      width: 75%;
+      float: left;
+      padding: 10px;
+      text-align: left; }
+      /* line 79, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .bank-name h4 {
+        font-size: 1.5em;
+        color: #000;
+        margin: 0; }
+      /* line 83, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .bank-name h5 {
+        font-size: 1.2em;
+        margin: 0; }
+    /* line 86, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+    #tooltip.bank .detail {
+      width: 25%;
+      float: left;
+      background: #f8f7f5;
+      border-left: 1px solid #e6e5e3;
+      border-bottom-right-radius: 0.5em;
+      border-top-right-radius: 0.5em; }
+      /* line 93, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .detail .entry {
+        padding: 5px;
+        border-bottom: 1px solid #e6e5e3; }
+      /* line 96, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .detail:last-child {
+        border-bottom: none; }
+      /* line 99, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .detail .failed .title {
+        color: #909090;
+        font-size: 0.8em;
+        padding: 0;
+        margin: 0; }
+      /* line 104, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+      #tooltip.bank .detail .failed p {
+        padding: 0;
+        margin: 0; }
+        /* line 107, /Development/projects/failedbanktracker/source/stylesheets/_map.sass */
+        #tooltip.bank .detail .failed p.date {
+          color: #000;
+          font-size: 1.2em;
+          font-weight: bold; }
 
 /* line 1, /Development/projects/failedbanktracker/source/stylesheets/_navigation.sass */
 .centered-navigation {

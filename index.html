@@ -9,7 +9,7 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Failed Banks in Europe 1960-2014</title>
     
-    <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <link href="http://libs.cartocdn.com/cartodb.js/v3/3.13/themes/css/cartodb.css" rel="stylesheet" type="text/css" /><link href="stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="stylesheets/all.css" rel="stylesheet" type="text/css" />
   </head>
   
   <body class="index">
@@ -41,6 +41,9 @@
       <p>In the fall of 2012, the Open Economics Working Group organised a series of online events in order to create a list of the banks which failed in Europe during the latest financial crisis. The lack of a complete list of banks which were nationalised or ceased to exist motivated a group of people to join forces in compiling a dataset with some of the key parameters.</p>
     </div>
   </div>
+  <div id='top-10'>
+    <div id='top-10-chart'></div>
+  </div>
   <div id='map'>
     <div id='legend'>
       <b>Failed Banks</b>
@@ -48,7 +51,37 @@
   </div>
   <div id='tooltip'></div>
 </div>
+<script id='country-tooltip' type='text/x-handlebars-template'>
+  <div class='title'>
+  <h4>{{name}}</h4>
+  </div>
+  <div class='details'>
+  <p class='explanation'>Failed Banks</p>
+  <h5>{{dataCount}}</h5>
+  </div>
+</script>
+<script id='bank-tooltip' type='text/x-handlebars-template'>
+  <div class="bank-name">
+  <h4>{{bank_name}}</h4>
+  <h5>{{city}}</h5>
+  </div>
+  <div class="detail">
+  <div class="failed entry">
+  <div class="title">Failed</div>
+  <p class="date">{{start_date_formatted}}</p>
+  </div>
+  {{#end_date}}
+  <div class="recovered entry">
+  <span class="title">Recovered</span>
+  <p class="date">{{end_date}}</p>
+  </div>
+  {{/end_date}}
+  <div class="article entry">
+  <p class="article"><a href="{{article_link}}">Article</s></p>
+  </div>
+  </div>
+</script>
 
-    <script src="javascripts/all.js" type="text/javascript"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script><script src="javascripts/all.js" type="text/javascript"></script>
   </body>
 </html>
