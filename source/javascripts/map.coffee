@@ -24,12 +24,16 @@ tooltipHtml = (d, data) ->
   countryTooltip(dataObj)
 
 countries = svg.append("g")
+bankL = svg.append("g").attr('class','banks')
 europeTopojson = "data/eu.json"
 failedBanks = "data/failed_per_country.csv"
+cartodbSQL = 'https://milafrerichs.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT *,to_char(start_date,\'YYYY\') as start_date_formatted,to_char(end_date,\'YYYY\') as end_date_formatted FROM failed_bank_tracker_geom'
+
 queue()
   .defer(d3.json,europeTopojson)
   .defer(d3.csv, failedBanks)
-  .await  (error, topo, banks) ->
+  .defer(d3.json, cartodbSQL)
+  .await  (error, topo, banks, bankList) ->
     bankScale.domain(d3.extent(banks, (d) -> parseInt(d.count)))
     countries.selectAll(".country")
     .data(topojson.feature(topo, topo.objects.europe).features)
@@ -69,4 +73,11 @@ queue()
     .text((d) -> "≥ " + Math.round(d))
     .attr("y", (d, i) -> legendElementHeight * i)
     .attr("x", legendElementHeight)
+
+    bankL.selectAll('.bank')
+    .data(bankList.features)
+    .enter()
+    .append("path")
+    .attr("class","bank")
+    .attr("d",path)
     return
