@@ -638,3 +638,32 @@ body {
             padding-left: 1em;
             text-align: left;
             width: 12em; } }
+
+/* line 1, /Development/projects/failedbanktracker/source/stylesheets/_torque-map.sass */
+#torque-map {
+  margin: 2em 0;
+  display: block;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  height: 600px; }
+  /* line 20, /Development/projects/failedbanktracker/source/stylesheets/bourbon/addons/_clearfix.scss */
+  #torque-map::after {
+    clear: both;
+    content: "";
+    display: table; }
+  /* line 87, /Development/projects/failedbanktracker/source/stylesheets/neat/grid/_span-columns.scss */
+  #torque-map:last-child {
+    margin-right: 0; }
+
+/* line 7, /Development/projects/failedbanktracker/source/stylesheets/_torque-map.sass */
+#detail-map {
+  width: 900px;
+  height: 600px; }
+  /* line 11, /Development/projects/failedbanktracker/source/stylesheets/_torque-map.sass */
+  #detail-map .cartodb-popup.failed-banks-detail {
+    padding: 0; }
+    /* line 13, /Development/projects/failedbanktracker/source/stylesheets/_torque-map.sass */
+    #detail-map .cartodb-popup.failed-banks-detail .cartodb-popup-content-wrapper {
+      padding: 0; }
